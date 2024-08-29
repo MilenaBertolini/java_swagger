@@ -1,0 +1,32 @@
+# spring.application.name=compra
+
+# spring.datasource.url=jdbc:h2:mem:compra
+# spring.datasource.driver-class-name=org.h2.Driver
+# spring.datasource.username=sa
+# spring.datasource.password=12345
+# spring.jpa.hibernate.ddl-auto=update
+# spring.jpa.show-sql=true
+
+# # configurações do log
+# logging.level.org.springframework.web=trace
+# spring.h2.console.enabled=true
+# spring.h2.console.path=/h2-console
+# server.error.include-stacktrace=always
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:compra
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 12345
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+
+springdoc:
+    paths-to-match:
+        - /api/**/v1/**
+    swagger-ui:
+        use-root-path: true
+        # enabled: true
+        # path: /swagger-ui.html
