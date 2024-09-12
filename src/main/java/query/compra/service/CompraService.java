@@ -1,6 +1,7 @@
 package query.compra.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class CompraService {
             
             return compras;
         } catch (NaoAcheiException e) {
-            return null;
+            return Collections.emptyList();
         }
     }
 
