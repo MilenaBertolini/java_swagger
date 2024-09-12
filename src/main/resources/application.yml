@@ -28,5 +28,4 @@ springdoc:
         - /**
     swagger-ui:
         use-root-path: true
-        # enabled: true
-        # path: /swagger-ui.html
+       

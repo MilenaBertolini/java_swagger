@@ -26,18 +26,9 @@ public interface CompraRepository extends JpaRepository<Compra, Long>{
     @Query("select c.codProd from Compra c group by c.codProd order by sum(c.quantidade) desc")
     String findProdutoMaisVendido();
 
-    // Consulte as NF que foram vendidas mais de 10 unidades de pelo menos um produto. 
-    // @Query("select c from Compra c where c.quantidade")
-    // List<Compra> findNfVendidaMaisDezUnidadesProduto();
-    // findByAgeGreaterThan
-    // List<Compra> findByQuantidadeGreaterThan(Long quantidade);
-
     @Query("select c from Compra c where c.quantidade > :quantidade")
     List<Compra> findNfWithProdutoByQuantidadeGreaterThan(@Param("quantidade") Long quantidade);
 
-    // Pesquise o valor total das NF, onde esse valor seja maior que 500, e ordene o resultado do maior valor para o menor.
-    // @Query("select c from Compra c where")
-    // List<Compra> findValorTotalGreaterThan();
     @Query("select c from Compra c group by c.idNf having sum(c.valorUnitario * c.quantidade) > :valor order by sum(c.valorUnitario * c.quantidade) desc")
     List<Compra> findNfByValorTotalGreaterThanOrderByValorTotalDesc(@Param("valor") Double valor);
 
