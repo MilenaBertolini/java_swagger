@@ -24,7 +24,7 @@ public class CompraService {
 
     public List<Compra> getAll(){
         try {
-            List<Compra> compras = new ArrayList<Compra>();
+            List<Compra> compras = new ArrayList<>();
             compraRepository.findAll().forEach(compras::add);
             
             return compras;
@@ -35,8 +35,7 @@ public class CompraService {
 
     public List<Compra> findByDesconto(int desconto){
 
-        // List<Compra> zeroDesconto = compraRepository.findByDesconto(desconto);
-        List<Compra> zeroDesconto = new ArrayList<Compra>();
+        List<Compra> zeroDesconto = new ArrayList<>();
         compraRepository.findByDesconto(desconto).forEach(zeroDesconto::add);
         
         return zeroDesconto;
@@ -44,8 +43,7 @@ public class CompraService {
 
     public List<Compra> comprasComDesconto(int desconto){
 
-        // List<Compra> comDesconto = compraRepository.findByDescontoGreaterThan(desconto);
-        List<Compra> comDesconto = new ArrayList<Compra>();
+        List<Compra> comDesconto = new ArrayList<>();
         compraRepository.findByDescontoGreaterThan(desconto).forEach(comDesconto::add);
         return comDesconto;
 
@@ -53,8 +51,7 @@ public class CompraService {
 
     public List<Compra> getAllItemsPorValor(){
 
-        // List<Compra> allItems = compraRepository.getAllItemsPorValor();
-        List<Compra> allItems = new ArrayList<Compra>();
+        List<Compra> allItems = new ArrayList<>();
         compraRepository.getAllItemsPorValor().forEach(allItems::add);
         
         return allItems;
@@ -71,7 +68,7 @@ public class CompraService {
 
     public List<Compra> getNfComQuantidadeProdutoMaior(Long quantidade){
 
-        List<Compra> quantidadeMaior = new ArrayList<Compra>();
+        List<Compra> quantidadeMaior = new ArrayList<>();
         compraRepository.findNfWithProdutoByQuantidadeGreaterThan(quantidade).forEach(quantidadeMaior::add);
         
         return quantidadeMaior;
@@ -81,7 +78,7 @@ public class CompraService {
 
     public List<Compra> getNfComQuantidadeProdutoMaior(Double valor){
 
-        List<Compra> valorMaior = new ArrayList<Compra>();
+        List<Compra> valorMaior = new ArrayList<>();
         compraRepository.findNfByValorTotalGreaterThanOrderByValorTotalDesc(valor).forEach(valorMaior::add);
         
         return valorMaior;
