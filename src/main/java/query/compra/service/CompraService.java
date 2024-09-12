@@ -18,10 +18,8 @@ public class CompraService {
 
     public Compra create(Compra compra){
 
-        Compra createCompra = compraRepository.save(compra);
+       return compraRepository.save(compra);
 
-
-        return createCompra;
     }
 
     public List<Compra> getAll(){
